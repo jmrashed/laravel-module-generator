@@ -1,7 +1,9 @@
 # Laravel Module Generator
 
 [![Latest Version](https://img.shields.io/packagist/v/jmrashed/laravel-module-generator.svg?style=flat-square)](https://packagist.org/packages/jmrashed/laravel-module-generator)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/jmrashed/laravel-module-generator/ci.yml?branch=main)](https://github.com/jmrashed/laravel-module-generator/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/jmrashed/laravel-module-generator.svg?style=flat-square)](https://packagist.org/packages/jmrashed/laravel-module-generator)
+[![Test Status](https://img.shields.io/github/workflow/status/jmrashed/laravel-module-generator/CI)](https://github.com/jmrashed/laravel-module-generator/actions)
 [![License](https://img.shields.io/packagist/l/jmrashed/laravel-module-generator.svg?style=flat-square)](LICENSE)
 
 > 🚀 A simple and flexible Laravel package to scaffold modular components with ease and speed.
@@ -18,7 +20,7 @@ The **Laravel Module Generator** helps you quickly create fully structured, reus
 - [Usage](#-usage)
   - [Basic Usage](#basic-usage)
   - [Available Options](#available-options)
-- [Example Structure](#-example-module-structure)
+  - [Real-World Example](#real-world-example)
 - [Testing](#-testing)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -43,7 +45,7 @@ The **Laravel Module Generator** helps you quickly create fully structured, reus
 composer require jmrashed/laravel-module-generator --dev
 ```
 
-> If you're using this package as a local development tool or package, you may also clone it directly:
+> Alternatively, you can clone this repository:
 
 ```bash
 git clone git@github.com:jmrashed/laravel-module-generator.git
@@ -70,6 +72,8 @@ You can customize the following in `config/module-generator.php`:
 - Base modules path (default: `modules/`)
 - Default namespace
 - Folder structure (e.g., Controllers, Models, Views, etc.)
+- Custom routing configurations
+- Middleware and service provider setups
 
 This allows you to adapt the package to fit your project’s architecture standards.
 
@@ -95,15 +99,21 @@ This will scaffold the module with default folders and routing files under `modu
 | `--api`        | Generate an API-ready module (Controller + Routes)|
 | `--force`      | Overwrite module if it already exists             |
 
-### Example
+### Real-World Example
+
+To create an **API** module with a **Blog** model, simply run:
 
 ```bash
 php artisan make:module Blog --with-model --api
 ```
 
----
+This will create a `Blog` module under `modules/Blog/` with:
 
-## 📁 Example Module Structure
+- `BlogController.php`
+- `Blog.php` model
+- `api.php` routes
+
+Example structure:
 
 ```
 modules/
@@ -112,12 +122,11 @@ modules/
     │   └── BlogController.php
     ├── Models/
     │   └── Blog.php
-    ├── Views/
-    │   └── index.blade.php
-    └── routes.php
+    ├── Routes/
+    │   └── api.php
+    └── Views/
+        └── index.blade.php
 ```
-
-> You can modify or extend the default structure as needed.
 
 ---
 
@@ -139,15 +148,17 @@ vendor/bin/phpunit
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+We welcome contributions! If you'd like to contribute, please follow these steps:
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin feature/my-feature`
-5. Open a Pull Request
+1. **Fork** the repository
+2. **Create** your branch (`git checkout -b feature/your-feature-name`)
+3. **Commit** your changes (`git commit -am 'Add some feature'`)
+4. **Push** to the branch (`git push origin feature/your-feature-name`)
+5. **Create a Pull Request**
 
-Please follow PSR coding standards and include tests for any new features.
+Please ensure that your code follows [PSR-12](https://www.php-fig.org/psr/psr-12/) coding standards and includes tests for new features.
+
+For more detailed guidelines, please check the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ---
 
