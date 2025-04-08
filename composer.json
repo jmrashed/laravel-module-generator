@@ -1,0 +1,47 @@
+{
+    "name": "jmrashed/laravel-module-generator",
+    "description": "A Laravel package to generate and manage modular components effortlessly.",
+    "keywords": [
+        "laravel",
+        "module",
+        "generator",
+        "laravel-module",
+        "Jmrashed",
+        "scaffold"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Md Rasheduzzaman",
+            "email": "jmrashed@gmail.com",
+            "homepage": "https://rasheduzzaman.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "illuminate/support": "^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "nwidart/laravel-modules": "^8.2",
+        "nette/php-generator": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jmrashed\\ModuleGenerator\\": "src/"
+        },
+        "classmap": [
+            "src/Classes"
+        ],
+        "files": [
+            "src/Helpers/Helper.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jmrashed\\ModuleGenerator\\Providers\\ModuleGeneratorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
